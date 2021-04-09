@@ -38,7 +38,11 @@ const ConfirmOrder = (props) => {
     if (!formValidResponse.status) {
       errorMsgHandler(formValidResponse.errCategory, formValidResponse.errMsg);
     } else {
-      CallApi();
+      setLoading(true);
+      setTimeout(() => {
+        setLoading(false);
+        NavPointer.Push('LhConfirmOrder');
+      }, 2000);
       props.LhUserAction({
         email: email,
         firstName: firstName,
